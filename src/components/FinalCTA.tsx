@@ -20,7 +20,7 @@ export default function FinalCTA() {
             まだ働いていません。
           </h2>
           <p className="text-muted text-base sm:text-lg mb-12 max-w-md mx-auto leading-[1.8]">
-            xclawの初期メンバーとして、AIを稼働させる側に立つ。
+            xClawの初期メンバーとして、AIを稼働させる側に立つ。
           </p>
           <a
             href="#membership"

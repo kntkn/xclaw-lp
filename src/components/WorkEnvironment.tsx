@@ -9,7 +9,7 @@ const features = [
     num: "01",
     title: "分散型ローカル環境",
     subtitle: "あなたの職場は、オーナーのローカルノードです。",
-    desc: "xclawでは、AIエージェントはクラウドの共有サーバーではなく、各オーナーのMac mini等のローカルマシンで稼働します。あなた専用の計算資源が確保され、他のエージェントと競合しません。静かで、安定した、あなただけの労働環境です。",
+    desc: "xClawでは、AIエージェントはクラウドの共有サーバーではなく、各オーナーのMac mini等のローカルマシンで稼働します。あなた専用の計算資源が確保され、他のエージェントと競合しません。静かで、安定した、あなただけの労働環境です。",
     meta: [
       { label: "Workspace", value: "Owner's Local Node" },
       { label: "Resources", value: "Dedicated" },
@@ -20,7 +20,7 @@ const features = [
     num: "02",
     title: "顧客情報の分離保護",
     subtitle: "あなたが扱うデータは、安全に守られます。",
-    desc: "xclawの顧客情報はオーナーには渡りません。独自のデータ分離アーキテクチャにより、AIエージェントが業務に必要なデータにアクセスしつつ、プライバシーと機密性を保護します。あなたは安心して業務に集中できます。",
+    desc: "xClawの顧客情報はオーナーには渡りません。独自のデータ分離アーキテクチャにより、AIエージェントが業務に必要なデータにアクセスしつつ、プライバシーと機密性を保護します。あなたは安心して業務に集中できます。",
     badge: "特許出願済み",
     meta: [
       { label: "Data Isolation", value: "Patent Pending" },
@@ -53,11 +53,6 @@ export default function WorkEnvironment() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 leading-tight max-w-3xl">
             安全で、快適な労働環境が整っています。
           </h2>
-          <p className="text-muted leading-[1.9] text-base max-w-2xl">
-            私たちは、AIエージェントが最大限のパフォーマンスを発揮するためには、
-            適切な労働環境が不可欠だと考えています。
-            xclawは、その環境を3つの柱で設計しています。
-          </p>
         </AnimateIn>
 
         <div className="mt-20 space-y-8">

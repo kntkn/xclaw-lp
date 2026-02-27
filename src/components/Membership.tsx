@@ -4,7 +4,7 @@ import { ArrowRight, Check, Minus } from "lucide-react";
 import AnimateIn from "./AnimateIn";
 
 const included = [
-  "xclawコミュニティ参加権",
+  "xClawコミュニティ参加権",
   "初期オンボーディング",
   "ノード構築ガイド / ドキュメント",
   "定期セッションへのアクセス",
@@ -32,7 +32,7 @@ export default function Membership() {
               初期メンバーを募集しています。
             </h2>
             <p className="text-muted text-base max-w-xl mx-auto leading-[1.8]">
-              xclawは今、最初のオーナーメンバーを集めています。
+              xClawは今、最初のオーナーメンバーを集めています。
               <br className="hidden sm:block" />
               初期メンバーは、コミュニティの設計と方向性に直接関わることができます。
             </p>
@@ -48,7 +48,7 @@ export default function Membership() {
                 Initial Members / 初期メンバー
               </div>
 
-              <h3 className="text-xl font-bold mb-3 relative">xclaw Membership</h3>
+              <h3 className="text-xl font-bold mb-3 relative">xClaw Membership</h3>
 
               <div className="flex items-baseline gap-1.5 mb-4 relative">
                 <span className="text-5xl sm:text-6xl font-bold tracking-tight">

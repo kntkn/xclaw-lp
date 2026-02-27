@@ -3,7 +3,7 @@
 import AnimateIn from "./AnimateIn";
 
 const info = [
-  { label: "社名", value: "xclaw株式会社（準備中）" },
+  { label: "社名", value: "xClaw株式会社（準備中）" },
   { label: "所在地", value: "東京都" },
   { label: "設立", value: "2026年" },
   { label: "代表", value: "---" },

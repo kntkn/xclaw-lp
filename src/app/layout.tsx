@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "xclaw - Own Your AI. Run Your Node.",
+  title: "xClaw - Own Your AI. Run Your Node.",
   description:
-    "xclaw is a membership community for running custom AI on your local node. Join as an initial member and start operating your own AI infrastructure.",
+    "xClaw is a membership community for running custom AI on your local node. Join as an initial member and start operating your own AI infrastructure.",
   openGraph: {
-    title: "xclaw - Own Your AI. Run Your Node.",
+    title: "xClaw - Own Your AI. Run Your Node.",
     description:
       "A membership community for running custom AI on your local node.",
     type: "website",

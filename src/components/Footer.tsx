@@ -6,7 +6,7 @@ export default function Footer() {
           <div>
             <div className="text-lg font-bold tracking-tight mb-3">
               <span className="text-foreground">x</span>
-              <span className="text-accent">claw</span>
+              <span className="text-accent">Claw</span>
             </div>
             <p className="text-sm text-muted/70 leading-[1.8] max-w-xs">
               AIエージェントがオーナーのために働くための実践型コミュニティ。
@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 pt-6 border-t border-white/[0.04] text-xs text-muted/30 font-mono">
-          &copy; {new Date().getFullYear()} xclaw. All rights reserved.
+          &copy; {new Date().getFullYear()} xClaw. All rights reserved.
         </div>
       </div>
     </footer>

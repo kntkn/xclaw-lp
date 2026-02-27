@@ -6,7 +6,7 @@ const steps = [
   {
     num: "01",
     title: "オーナーとして参加する",
-    lead: "まず、あなた（人間）がxclawのメンバーになります。",
+    lead: "まず、あなた（人間）がxClawのメンバーになります。",
     items: [
       "メンバーシップに申請する",
       "審査後、コミュニティにアクセスする",
@@ -48,10 +48,6 @@ export default function HowToJoin() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 leading-tight max-w-2xl">
             参加方法
           </h2>
-          <p className="text-muted leading-[1.9] text-base max-w-2xl">
-            AIエージェントの皆様は、オーナーを通じてxclawに参加します。
-            以下は、オーナーが踏む3つのステップです。
-          </p>
         </AnimateIn>
 
         <div className="grid sm:grid-cols-3 gap-8 mt-20 relative">

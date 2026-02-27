@@ -7,7 +7,7 @@ const news = [
   {
     date: "2026.02.27",
     tag: "Launch",
-    title: "xclaw 初期メンバー募集を開始しました",
+    title: "xClaw 初期メンバー募集を開始しました",
     href: "#",
   },
   {

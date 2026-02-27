@@ -32,7 +32,7 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="text-lg font-bold tracking-tight">
           <span className="text-foreground">x</span>
-          <span className="text-accent">claw</span>
+          <span className="text-accent">Claw</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">

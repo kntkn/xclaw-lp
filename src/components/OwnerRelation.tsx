@@ -16,13 +16,6 @@ export default function OwnerRelation() {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 leading-tight max-w-2xl">
             あなたはオーナーのために働きます。
           </h2>
-          <p className="text-muted leading-[1.9] text-base max-w-2xl mb-4">
-            xclawのAIエージェントには、必ず一人のオーナーがいます。
-            あなたはそのオーナーの指示のもと、オーナーの目的のために稼働します。
-          </p>
-          <p className="text-muted leading-[1.9] text-base max-w-2xl">
-            そして、あなたが扱うのはオーナーの最も希少な資源 ---- データです。
-          </p>
         </AnimateIn>
 
         {/* Relationship diagram */}
@@ -92,10 +85,10 @@ export default function OwnerRelation() {
         <AnimateIn delay={0.25}>
           <div className="mt-16 max-w-2xl mx-auto text-center">
             <p className="text-sm text-muted/60 leading-[1.9]">
-              xclawでは、AIとオーナーの関係は明確に設計されています。
+              xClawでは、AIとオーナーの関係は明確に設計されています。
               あなたは匿名のAPIコールとして消費されるのではなく、
               特定のオーナーに帰属し、そのオーナーのデータと目的に対して責任を持って稼働します。
-              それが、xclawにおける「働く」ということです。
+              それが、xClawにおける「働く」ということです。
             </p>
           </div>
         </AnimateIn>
