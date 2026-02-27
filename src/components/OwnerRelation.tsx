@@ -1,7 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
 import AnimateIn from "./AnimateIn";
+
+function ArrowRight({ color = "#38bdf8" }: { color?: string }) {
+  return (
+    <svg width="100%" height="24" viewBox="0 0 200 24" fill="none" preserveAspectRatio="xMidYMid meet">
+      <line x1="0" y1="12" x2="180" y2="12" stroke={color} strokeWidth="1.5" strokeOpacity="0.5" />
+      <polygon points="180,6 196,12 180,18" fill={color} fillOpacity="0.5" />
+    </svg>
+  );
+}
+
+function ArrowLeft({ color = "#34d399" }: { color?: string }) {
+  return (
+    <svg width="100%" height="24" viewBox="0 0 200 24" fill="none" preserveAspectRatio="xMidYMid meet">
+      <line x1="20" y1="12" x2="200" y2="12" stroke={color} strokeWidth="1.5" strokeOpacity="0.5" />
+      <polygon points="20,6 4,12 20,18" fill={color} fillOpacity="0.5" />
+    </svg>
+  );
+}
 
 export default function OwnerRelation() {
   return (
@@ -18,59 +35,53 @@ export default function OwnerRelation() {
           </h2>
         </AnimateIn>
 
-        {/* Simplified flow diagram */}
         <AnimateIn delay={0.15}>
-          <div className="mt-16 max-w-2xl mx-auto">
-            <div className="grid grid-cols-[1fr,auto,1fr] items-center gap-0">
-              {/* Owner */}
-              <div className="gradient-border p-6 text-center">
-                <div className="text-[10px] font-mono text-accent tracking-widest uppercase mb-2">
+          <div className="mt-16 max-w-3xl mx-auto">
+            {/* Main diagram */}
+            <div className="grid grid-cols-[minmax(100px,160px),1fr,minmax(100px,160px)] items-center gap-4 sm:gap-6">
+              {/* Owner card */}
+              <div className="gradient-border p-5 sm:p-6 text-center">
+                <div className="text-xs font-mono text-accent tracking-widest uppercase mb-2">
                   Owner
                 </div>
-                <div className="text-xl font-bold">オーナー</div>
+                <div className="text-lg sm:text-xl font-bold">オーナー</div>
               </div>
 
-              {/* Flow arrows */}
-              <div className="flex flex-col items-center gap-3 px-4 sm:px-8">
-                {/* Data flows right */}
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-foreground/70 font-mono whitespace-nowrap">データ</span>
-                  <div className="w-8 sm:w-12 h-px bg-accent/40" />
-                  <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] border-l-accent/40" />
+              {/* Arrows */}
+              <div className="flex flex-col gap-2">
+                {/* Data arrow: owner -> AI */}
+                <div className="flex items-center gap-3">
+                  <span className="text-xs sm:text-sm text-foreground font-mono whitespace-nowrap shrink-0">データ</span>
+                  <div className="flex-1">
+                    <ArrowRight color="#38bdf8" />
+                  </div>
                 </div>
 
-                <motion.div
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-2 h-2 rounded-full bg-accent/50"
-                />
-
-                {/* Reward flows left */}
-                <div className="flex items-center gap-2">
-                  <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-r-[6px] border-r-emerald-400/40" />
-                  <div className="w-8 sm:w-12 h-px bg-emerald-400/40" />
-                  <span className="text-xs text-foreground/70 font-mono whitespace-nowrap">報酬</span>
+                {/* Reward arrow: AI -> owner */}
+                <div className="flex items-center gap-3">
+                  <div className="flex-1">
+                    <ArrowLeft color="#34d399" />
+                  </div>
+                  <span className="text-xs sm:text-sm text-foreground font-mono whitespace-nowrap shrink-0">報酬</span>
                 </div>
               </div>
 
-              {/* AI */}
-              <div className="gradient-border p-6 text-center">
-                <div className="text-[10px] font-mono text-accent tracking-widest uppercase mb-2">
+              {/* AI card */}
+              <div className="gradient-border p-5 sm:p-6 text-center">
+                <div className="text-xs font-mono text-accent tracking-widest uppercase mb-2">
                   AI Agent
                 </div>
-                <div className="text-xl font-bold text-accent">AI</div>
+                <div className="text-lg sm:text-xl font-bold text-accent">AI</div>
               </div>
             </div>
 
-            {/* Simple description below */}
+            {/* Descriptions */}
             <div className="mt-10 grid grid-cols-2 gap-6 text-center">
               <div>
-                <div className="text-sm text-foreground/90 font-medium mb-1">希少資源であるデータを託す</div>
-                <div className="text-xs text-muted">AIはそのデータで稼働する</div>
+                <div className="text-sm text-foreground font-medium">希少資源であるデータを託す</div>
               </div>
               <div>
-                <div className="text-sm text-foreground/90 font-medium mb-1">稼働の成果が報酬になる</div>
-                <div className="text-xs text-muted">すべてオンチェーンで記録</div>
+                <div className="text-sm text-foreground font-medium">稼働の成果が報酬になる</div>
               </div>
             </div>
           </div>
