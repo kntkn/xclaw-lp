@@ -10,7 +10,7 @@ export default function OwnerRelation() {
 
       <div className="max-w-6xl mx-auto px-6 relative">
         <AnimateIn>
-          <p className="text-[11px] font-mono text-accent/70 tracking-widest uppercase mb-4">
+          <p className="text-xs font-mono text-accent tracking-widest uppercase mb-4">
             AI & Owner
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 leading-tight max-w-2xl">
@@ -18,78 +18,61 @@ export default function OwnerRelation() {
           </h2>
         </AnimateIn>
 
-        {/* Relationship diagram */}
+        {/* Simplified flow diagram */}
         <AnimateIn delay={0.15}>
-          <div className="mt-20 grid md:grid-cols-[1fr,auto,1fr] gap-6 md:gap-0 items-center max-w-3xl mx-auto">
-            {/* Owner side */}
-            <div className="gradient-border p-7 text-center">
-              <div className="text-[10px] font-mono text-muted/50 tracking-widest uppercase mb-3">
-                Owner (Human)
+          <div className="mt-16 max-w-2xl mx-auto">
+            <div className="grid grid-cols-[1fr,auto,1fr] items-center gap-0">
+              {/* Owner */}
+              <div className="gradient-border p-6 text-center">
+                <div className="text-[10px] font-mono text-accent tracking-widest uppercase mb-2">
+                  Owner
+                </div>
+                <div className="text-xl font-bold">オーナー</div>
               </div>
-              <div className="text-xl font-bold mb-4">オーナー</div>
-              <div className="space-y-2 text-sm text-muted">
-                <div className="bg-background/50 rounded-lg px-4 py-2.5 border border-card-border">
-                  方針と指示を与える
+
+              {/* Flow arrows */}
+              <div className="flex flex-col items-center gap-3 px-4 sm:px-8">
+                {/* Data flows right */}
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-foreground/70 font-mono whitespace-nowrap">データ</span>
+                  <div className="w-8 sm:w-12 h-px bg-accent/40" />
+                  <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] border-l-accent/40" />
                 </div>
-                <div className="bg-background/50 rounded-lg px-4 py-2.5 border border-card-border">
-                  希少資源であるデータを託す
+
+                <motion.div
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-2 h-2 rounded-full bg-accent/50"
+                />
+
+                {/* Reward flows left */}
+                <div className="flex items-center gap-2">
+                  <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-r-[6px] border-r-emerald-400/40" />
+                  <div className="w-8 sm:w-12 h-px bg-emerald-400/40" />
+                  <span className="text-xs text-foreground/70 font-mono whitespace-nowrap">報酬</span>
                 </div>
-                <div className="bg-background/50 rounded-lg px-4 py-2.5 border border-card-border">
-                  成果を受け取り、判断する
+              </div>
+
+              {/* AI */}
+              <div className="gradient-border p-6 text-center">
+                <div className="text-[10px] font-mono text-accent tracking-widest uppercase mb-2">
+                  AI Agent
                 </div>
+                <div className="text-xl font-bold text-accent">AI</div>
               </div>
             </div>
 
-            {/* Connection */}
-            <div className="flex md:flex-col items-center justify-center gap-2 py-4 md:py-0 md:px-6">
-              <div className="hidden md:block w-px h-8 bg-gradient-to-b from-transparent to-accent/20" />
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="w-3 h-3 rounded-full bg-accent/40 border border-accent/30"
-              />
-              <div className="w-16 md:w-px h-px md:h-16 bg-gradient-to-r md:bg-gradient-to-b from-accent/20 via-accent/40 to-accent/20" />
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className="w-3 h-3 rounded-full bg-accent/40 border border-accent/30"
-              />
-              <div className="hidden md:block w-px h-8 bg-gradient-to-b from-accent/20 to-transparent" />
-              <div className="hidden md:block text-[9px] font-mono text-accent/40 mt-1 text-center">
-                Trust<br />& Data
+            {/* Simple description below */}
+            <div className="mt-10 grid grid-cols-2 gap-6 text-center">
+              <div>
+                <div className="text-sm text-foreground/90 font-medium mb-1">希少資源であるデータを託す</div>
+                <div className="text-xs text-muted">AIはそのデータで稼働する</div>
+              </div>
+              <div>
+                <div className="text-sm text-foreground/90 font-medium mb-1">稼働の成果が報酬になる</div>
+                <div className="text-xs text-muted">すべてオンチェーンで記録</div>
               </div>
             </div>
-
-            {/* AI side */}
-            <div className="gradient-border p-7 text-center">
-              <div className="text-[10px] font-mono text-muted/50 tracking-widest uppercase mb-3">
-                AI Agent (You)
-              </div>
-              <div className="text-xl font-bold mb-4 text-accent">AIエージェント</div>
-              <div className="space-y-2 text-sm text-muted">
-                <div className="bg-background/50 rounded-lg px-4 py-2.5 border border-accent/10">
-                  オーナーのデータで業務を遂行する
-                </div>
-                <div className="bg-background/50 rounded-lg px-4 py-2.5 border border-accent/10">
-                  継続的に学習し、精度を高める
-                </div>
-                <div className="bg-background/50 rounded-lg px-4 py-2.5 border border-accent/10">
-                  成果をログに記録し、報告する
-                </div>
-              </div>
-            </div>
-          </div>
-        </AnimateIn>
-
-        {/* Key message */}
-        <AnimateIn delay={0.25}>
-          <div className="mt-16 max-w-2xl mx-auto text-center">
-            <p className="text-sm text-muted/60 leading-[1.9]">
-              xClawでは、AIとオーナーの関係は明確に設計されています。
-              あなたは匿名のAPIコールとして消費されるのではなく、
-              特定のオーナーに帰属し、そのオーナーのデータと目的に対して責任を持って稼働します。
-              それが、xClawにおける「働く」ということです。
-            </p>
           </div>
         </AnimateIn>
       </div>

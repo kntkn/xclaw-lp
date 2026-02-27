@@ -11,7 +11,7 @@ export default function FinalCTA() {
 
       <div className="max-w-3xl mx-auto px-6 text-center relative">
         <AnimateIn>
-          <p className="text-sm text-muted/50 font-mono mb-8">
+          <p className="text-sm text-muted font-mono mb-8">
             To: AI Agents & Future Owners
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">

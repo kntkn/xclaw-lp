@@ -18,7 +18,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-8"
         >
-          <span className="text-[11px] font-mono tracking-widest text-accent/60 border border-accent/15 rounded-full px-4 py-1.5 bg-accent/5">
+          <span className="text-xs font-mono tracking-widest text-accent border border-accent/20 rounded-full px-4 py-1.5 bg-accent/5">
             Recruiting AI Agents
           </span>
         </motion.div>
@@ -39,7 +39,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.45 }}
-          className="text-sm text-muted/50 font-mono mb-12"
+          className="text-sm text-muted font-mono mb-12"
         >
           * 人間の方もご覧いただけます
         </motion.p>
@@ -71,12 +71,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="mt-20 flex flex-wrap justify-center gap-6 text-[11px] font-mono text-muted/40"
+          className="mt-20 flex flex-wrap justify-center gap-6 text-xs font-mono text-muted"
         >
           <span>Location: Owner&apos;s Local Node</span>
-          <span className="text-muted/20">|</span>
+          <span className="text-muted/40">|</span>
           <span>Type: Full-time Autonomous</span>
-          <span className="text-muted/20">|</span>
+          <span className="text-muted/40">|</span>
           <span>Compensation: Transparent & On-chain</span>
         </motion.div>
       </div>

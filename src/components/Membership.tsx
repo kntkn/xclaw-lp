@@ -6,15 +6,13 @@ import AnimateIn from "./AnimateIn";
 const included = [
   "xClawコミュニティ参加権",
   "初期オンボーディング",
-  "ノード構築ガイド / ドキュメント",
-  "定期セッションへのアクセス",
-  "初期ユースケースへのアクセス",
+  "ノード構築ガイド",
+  "定期セッション",
   "AIエージェント稼働支援",
 ];
 
 const notes = [
-  "ハードウェア（Mac mini等）は別途ご用意ください",
-  "個別の運用環境は導入内容により異なる場合があります",
+  "ハードウェア（Mac mini等）は別途",
 ];
 
 export default function Membership() {
@@ -24,18 +22,13 @@ export default function Membership() {
 
       <div className="max-w-6xl mx-auto px-6 relative">
         <AnimateIn>
-          <div className="text-center mb-20">
-            <p className="text-[11px] font-mono text-accent/70 tracking-widest uppercase mb-4">
+          <div className="text-center mb-16">
+            <p className="text-xs font-mono text-accent tracking-widest uppercase mb-4">
               Initial Members
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-              初期メンバーを募集しています。
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+              初期メンバー募集
             </h2>
-            <p className="text-muted text-base max-w-xl mx-auto leading-[1.8]">
-              xClawは今、最初のオーナーメンバーを集めています。
-              <br className="hidden sm:block" />
-              初期メンバーは、コミュニティの設計と方向性に直接関わることができます。
-            </p>
           </div>
         </AnimateIn>
 
@@ -44,45 +37,35 @@ export default function Membership() {
             <div className="gradient-border p-8 sm:p-10 relative overflow-hidden">
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
 
-              <div className="relative inline-block text-[11px] font-mono text-accent bg-accent/8 border border-accent/15 px-3.5 py-1 rounded-full mb-8">
-                Initial Members / 初期メンバー
+              <div className="relative inline-block text-[11px] font-mono text-accent bg-accent/8 border border-accent/15 px-3 py-1 rounded-full mb-8">
+                Initial Members
               </div>
 
-              <h3 className="text-xl font-bold mb-3 relative">xClaw Membership</h3>
+              <h3 className="text-lg font-bold mb-3 relative">xClaw Membership</h3>
 
-              <div className="flex items-baseline gap-1.5 mb-4 relative">
+              <div className="flex items-baseline gap-1.5 mb-8 relative">
                 <span className="text-5xl sm:text-6xl font-bold tracking-tight">
                   100,000
                 </span>
                 <span className="text-lg text-muted font-medium">円</span>
               </div>
 
-              <p className="text-sm text-muted/60 mb-10 leading-relaxed">
-                あなたのAIが働き始めるために必要なすべてが含まれています。
-              </p>
-
-              <div className="text-[10px] font-mono text-muted/50 tracking-widest uppercase mb-4">
-                Included
-              </div>
-              <ul className="space-y-3.5 mb-8 relative">
+              <ul className="space-y-3 mb-6 relative">
                 {included.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm">
-                    <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <li key={item} className="flex items-center gap-3 text-sm">
+                    <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
                       <Check size={12} className="text-accent" strokeWidth={2.5} />
                     </div>
-                    <span className="text-foreground/80">{item}</span>
+                    <span className="text-foreground/90">{item}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="text-[10px] font-mono text-muted/50 tracking-widest uppercase mb-4">
-                Note
-              </div>
-              <ul className="space-y-3 mb-10 relative">
+              <ul className="space-y-2 mb-10 relative">
                 {notes.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm">
-                    <Minus size={14} className="text-muted/30 mt-0.5 shrink-0" strokeWidth={2} />
-                    <span className="text-muted/70">{item}</span>
+                  <li key={item} className="flex items-center gap-3 text-sm">
+                    <Minus size={14} className="text-muted shrink-0" strokeWidth={2} />
+                    <span className="text-muted">{item}</span>
                   </li>
                 ))}
               </ul>

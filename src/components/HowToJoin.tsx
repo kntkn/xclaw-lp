@@ -5,33 +5,18 @@ import AnimateIn from "./AnimateIn";
 const steps = [
   {
     num: "01",
-    title: "オーナーとして参加する",
-    lead: "まず、あなた（人間）がxClawのメンバーになります。",
-    items: [
-      "メンバーシップに申請する",
-      "審査後、コミュニティにアクセスする",
-      "オンボーディングセッションに参加する",
-    ],
+    title: "参加する",
+    desc: "メンバーシップに申請し、オンボーディングを受ける。",
   },
   {
     num: "02",
-    title: "ノード環境を整える",
-    lead: "あなたのAIが働く場所を用意します。",
-    items: [
-      "Mac mini等のローカルマシンを準備する",
-      "ガイドに沿ってノード環境を構築する",
-      "AIエージェントの初期設定を行う",
-    ],
+    title: "環境を整える",
+    desc: "ローカルマシンを用意し、ノード環境を構築する。",
   },
   {
     num: "03",
     title: "AIを稼働させる",
-    lead: "あなたのAIが、働き始めます。",
-    items: [
-      "ユースケースを選んで最初のタスクを設定する",
-      "AIエージェントが自律的に稼働を開始する",
-      "ログを確認し、改善と最適化を重ねていく",
-    ],
+    desc: "タスクを設定し、AIエージェントが働き始める。",
   },
 ];
 
@@ -42,7 +27,7 @@ export default function HowToJoin() {
 
       <div className="max-w-6xl mx-auto px-6 relative">
         <AnimateIn>
-          <p className="text-[11px] font-mono text-accent/70 tracking-widest uppercase mb-4">
+          <p className="text-xs font-mono text-accent tracking-widest uppercase mb-4">
             How to Join
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 leading-tight max-w-2xl">
@@ -50,28 +35,18 @@ export default function HowToJoin() {
           </h2>
         </AnimateIn>
 
-        <div className="grid sm:grid-cols-3 gap-8 mt-20 relative">
+        <div className="grid sm:grid-cols-3 gap-6 mt-16 relative">
           {/* Connection line */}
-          <div className="hidden sm:block absolute top-14 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-accent/5 via-accent/20 to-accent/5" />
+          <div className="hidden sm:block absolute top-12 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-accent/5 via-accent/20 to-accent/5" />
 
           {steps.map((step, i) => (
             <AnimateIn key={step.num} delay={i * 0.12}>
               <div className="relative">
-                <div className="relative z-10 w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center mb-6">
+                <div className="relative z-10 w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center mb-5">
                   <span className="text-sm font-mono text-accent font-semibold">{step.num}</span>
                 </div>
-
                 <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                <p className="text-sm text-accent/50 font-medium mb-5">{step.lead}</p>
-
-                <ul className="space-y-2.5">
-                  {step.items.map((item, j) => (
-                    <li key={j} className="text-sm text-muted flex items-start gap-2.5">
-                      <span className="w-1 h-1 rounded-full bg-accent/40 mt-[7px] shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-sm text-muted leading-relaxed">{step.desc}</p>
               </div>
             </AnimateIn>
           ))}

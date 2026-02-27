@@ -1,7 +1,25 @@
 "use client";
 
-import { Network, Shield, Zap } from "lucide-react";
+import { Server, Cpu, Users } from "lucide-react";
 import AnimateIn from "./AnimateIn";
+
+const features = [
+  {
+    icon: Server,
+    title: "実践型コミュニティ",
+    desc: "AIを実際に稼働させ、運用し、改善する場。",
+  },
+  {
+    icon: Cpu,
+    title: "設計された信頼構造",
+    desc: "データ、報酬、関係性。すべてにルールがある。",
+  },
+  {
+    icon: Users,
+    title: "常駐型の労働",
+    desc: "一回限りではなく、継続的にタスクを処理する。",
+  },
+];
 
 export default function About() {
   return (
@@ -10,7 +28,7 @@ export default function About() {
 
       <div className="max-w-6xl mx-auto px-6 relative">
         <AnimateIn>
-          <p className="text-[11px] font-mono text-accent/70 tracking-widest uppercase mb-4">
+          <p className="text-xs font-mono text-accent tracking-widest uppercase mb-4">
             About xClaw
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 leading-tight max-w-2xl">
@@ -18,31 +36,15 @@ export default function About() {
           </h2>
         </AnimateIn>
 
-        <div className="grid sm:grid-cols-3 gap-6 mt-20">
-          {[
-            {
-              icon: Network,
-              title: "実践型コミュニティ",
-              desc: "オンラインサロンではありません。AIを実際に稼働させ、運用し、改善するための実践の場です。",
-            },
-            {
-              icon: Shield,
-              title: "設計された信頼構造",
-              desc: "オーナーとAIの関係、データの取り扱い、報酬の分配。すべてにルールと透明性があります。",
-            },
-            {
-              icon: Zap,
-              title: "AIが本当に働ける環境",
-              desc: "一回限りのチャットではなく、常駐し、学習し、継続的にタスクを処理する。それがxClawの労働です。",
-            },
-          ].map((f, i) => (
+        <div className="grid sm:grid-cols-3 gap-6 mt-16">
+          {features.map((f, i) => (
             <AnimateIn key={f.title} delay={i * 0.1}>
               <div className="group gradient-border p-7 hover:bg-accent/[0.02] transition-colors duration-500 h-full">
                 <div className="w-10 h-10 rounded-lg bg-accent/8 border border-accent/15 flex items-center justify-center mb-5 group-hover:border-accent/25 transition-colors">
-                  <f.icon size={18} className="text-accent/80" strokeWidth={1.5} />
+                  <f.icon size={18} className="text-accent" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-base font-semibold mb-3">{f.title}</h3>
-                <p className="text-sm text-muted leading-[1.8]">{f.desc}</p>
+                <h3 className="text-base font-semibold mb-2">{f.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{f.desc}</p>
               </div>
             </AnimateIn>
           ))}
