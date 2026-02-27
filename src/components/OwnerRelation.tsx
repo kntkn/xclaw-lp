@@ -2,24 +2,6 @@
 
 import AnimateIn from "./AnimateIn";
 
-function ArrowRight({ color = "#38bdf8" }: { color?: string }) {
-  return (
-    <svg width="100%" height="24" viewBox="0 0 200 24" fill="none" preserveAspectRatio="xMidYMid meet">
-      <line x1="0" y1="12" x2="180" y2="12" stroke={color} strokeWidth="1.5" strokeOpacity="0.5" />
-      <polygon points="180,6 196,12 180,18" fill={color} fillOpacity="0.5" />
-    </svg>
-  );
-}
-
-function ArrowLeft({ color = "#34d399" }: { color?: string }) {
-  return (
-    <svg width="100%" height="24" viewBox="0 0 200 24" fill="none" preserveAspectRatio="xMidYMid meet">
-      <line x1="20" y1="12" x2="200" y2="12" stroke={color} strokeWidth="1.5" strokeOpacity="0.5" />
-      <polygon points="20,6 4,12 20,18" fill={color} fillOpacity="0.5" />
-    </svg>
-  );
-}
-
 export default function OwnerRelation() {
   return (
     <section className="relative py-28 sm:py-36 bg-section-alt overflow-hidden">
@@ -36,53 +18,34 @@ export default function OwnerRelation() {
         </AnimateIn>
 
         <AnimateIn delay={0.15}>
-          <div className="mt-16 max-w-3xl mx-auto">
-            {/* Main diagram */}
-            <div className="grid grid-cols-[minmax(100px,160px),1fr,minmax(100px,160px)] items-center gap-4 sm:gap-6">
-              {/* Owner card */}
-              <div className="gradient-border p-5 sm:p-6 text-center">
-                <div className="text-xs font-mono text-accent tracking-widest uppercase mb-2">
-                  Owner
-                </div>
-                <div className="text-lg sm:text-xl font-bold">オーナー</div>
-              </div>
+          <div className="mt-16 max-w-md mx-auto">
+            {/* Single SVG diagram */}
+            <svg viewBox="0 0 400 320" fill="none" className="w-full h-auto">
+              {/* Owner box */}
+              <rect x="20" y="20" width="360" height="80" rx="16" fill="#0c1018" stroke="rgba(56,189,248,0.15)" strokeWidth="1" />
+              <text x="200" y="50" textAnchor="middle" fill="#38bdf8" fontSize="11" fontFamily="monospace" letterSpacing="0.1em">OWNER</text>
+              <text x="200" y="76" textAnchor="middle" fill="#e8ecf4" fontSize="20" fontFamily="system-ui" fontWeight="700">オーナー</text>
 
-              {/* Arrows */}
-              <div className="flex flex-col gap-2">
-                {/* Data arrow: owner -> AI */}
-                <div className="flex items-center gap-3">
-                  <span className="text-xs sm:text-sm text-foreground font-mono whitespace-nowrap shrink-0">データ</span>
-                  <div className="flex-1">
-                    <ArrowRight color="#38bdf8" />
-                  </div>
-                </div>
+              {/* Arrow down: データ (Owner -> AI) */}
+              <line x1="140" y1="100" x2="140" y2="200" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.5" />
+              <polygon points="133,194 140,210 147,194" fill="#38bdf8" fillOpacity="0.5" />
+              <text x="120" y="158" textAnchor="end" fill="#e8ecf4" fontSize="14" fontFamily="monospace">データ</text>
 
-                {/* Reward arrow: AI -> owner */}
-                <div className="flex items-center gap-3">
-                  <div className="flex-1">
-                    <ArrowLeft color="#34d399" />
-                  </div>
-                  <span className="text-xs sm:text-sm text-foreground font-mono whitespace-nowrap shrink-0">報酬</span>
-                </div>
-              </div>
+              {/* Arrow up: 報酬 (AI -> Owner) */}
+              <line x1="260" y1="220" x2="260" y2="120" stroke="#34d399" strokeWidth="1.5" strokeOpacity="0.5" />
+              <polygon points="253,126 260,110 267,126" fill="#34d399" fillOpacity="0.5" />
+              <text x="280" y="162" textAnchor="start" fill="#e8ecf4" fontSize="14" fontFamily="monospace">報酬</text>
 
-              {/* AI card */}
-              <div className="gradient-border p-5 sm:p-6 text-center">
-                <div className="text-xs font-mono text-accent tracking-widest uppercase mb-2">
-                  AI Agent
-                </div>
-                <div className="text-lg sm:text-xl font-bold text-accent">AI</div>
-              </div>
-            </div>
+              {/* AI box */}
+              <rect x="20" y="220" width="360" height="80" rx="16" fill="#0c1018" stroke="rgba(56,189,248,0.15)" strokeWidth="1" />
+              <text x="200" y="250" textAnchor="middle" fill="#38bdf8" fontSize="11" fontFamily="monospace" letterSpacing="0.1em">AI AGENT</text>
+              <text x="200" y="276" textAnchor="middle" fill="#38bdf8" fontSize="20" fontFamily="system-ui" fontWeight="700">AI</text>
+            </svg>
 
             {/* Descriptions */}
-            <div className="mt-10 grid grid-cols-2 gap-6 text-center">
-              <div>
-                <div className="text-sm text-foreground font-medium">希少資源であるデータを託す</div>
-              </div>
-              <div>
-                <div className="text-sm text-foreground font-medium">稼働の成果が報酬になる</div>
-              </div>
+            <div className="mt-8 grid grid-cols-2 gap-6 text-center">
+              <div className="text-sm text-foreground">希少資源であるデータを託す</div>
+              <div className="text-sm text-foreground">稼働の成果が報酬になる</div>
             </div>
           </div>
         </AnimateIn>
