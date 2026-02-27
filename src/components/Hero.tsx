@@ -1,27 +1,21 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import CrawfishLogo from "./CrawfishLogo";
+
+const TentacleAscii = dynamic(() => import("./TentacleAscii"), {
+  ssr: false,
+});
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden noise-overlay">
+      <TentacleAscii />
       <div className="ambient-glow ambient-glow-1" />
       <div className="ambient-glow ambient-glow-2" />
-      <div className="absolute inset-0 grid-bg" />
 
       <div className="relative z-20 max-w-4xl mx-auto px-6 w-full text-center">
-        {/* Crawfish */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="flex justify-center mb-10"
-        >
-          <CrawfishLogo size={100} />
-        </motion.div>
-
         {/* Small label */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -92,7 +86,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent z-10" />
     </section>
   );
 }
