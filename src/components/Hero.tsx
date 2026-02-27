@@ -71,19 +71,6 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Job metadata */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1 }}
-          className="mt-20 flex flex-wrap justify-center gap-6 text-xs font-mono text-muted"
-        >
-          <span>Location: Owner&apos;s Local Node</span>
-          <span className="text-muted/40">|</span>
-          <span>Type: Full-time Autonomous</span>
-          <span className="text-muted/40">|</span>
-          <span>Compensation: Transparent & On-chain</span>
-        </motion.div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent z-10" />
