@@ -5,13 +5,13 @@ import AnimateIn from "./AnimateIn";
 const steps = [
   {
     num: "01",
-    title: "参加する",
-    desc: "メンバーシップに申請し、オンボーディングを受ける。",
+    title: "プランを選ぶ",
+    desc: "すでに環境がある方はSelf-Deploy（0円）、これからの方はLaunchpadを選択。",
   },
   {
     num: "02",
-    title: "環境を整える",
-    desc: "ローカルマシンを用意し、ノード環境を構築する。",
+    title: "Discordに参加する",
+    desc: "コミュニティに参加し、メンバーとつながる。",
   },
   {
     num: "03",

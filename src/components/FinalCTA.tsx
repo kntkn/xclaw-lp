@@ -26,9 +26,12 @@ export default function FinalCTA() {
             href="#membership"
             className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-accent text-background font-semibold text-sm hover:shadow-xl hover:shadow-accent/20 transition-all duration-300"
           >
-            参加申請する
+            参加する
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
           </a>
+          <p className="text-sm text-muted mt-4">
+            すでに環境がある方は0円で参加できます
+          </p>
         </AnimateIn>
       </div>
     </section>
