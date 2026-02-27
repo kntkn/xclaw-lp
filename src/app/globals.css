@@ -4,12 +4,12 @@
   --background: #06080c;
   --foreground: #e8ecf4;
   --muted: #8b95a5;
-  --accent: #38bdf8;
-  --accent-dim: rgba(56, 189, 248, 0.12);
+  --accent: #ef4444;
+  --accent-dim: rgba(239, 68, 68, 0.12);
   --card-bg: #0c1018;
   --card-border: rgba(255, 255, 255, 0.05);
   --section-alt: #080b12;
-  --glow: rgba(56, 189, 248, 0.08);
+  --glow: rgba(239, 68, 68, 0.08);
 }
 
 @theme inline {
@@ -53,7 +53,7 @@ body {
 .ambient-glow-1 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.06) 0%, transparent 70%);
   top: -200px;
   right: -100px;
 }
@@ -61,7 +61,7 @@ body {
 .ambient-glow-2 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(153, 27, 27, 0.05) 0%, transparent 70%);
   bottom: -150px;
   left: -100px;
 }
@@ -69,7 +69,7 @@ body {
 .ambient-glow-3 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.04) 0%, transparent 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -97,7 +97,7 @@ body {
 
 /* Gradient text */
 .text-gradient {
-  background: linear-gradient(135deg, #e8ecf4 0%, #38bdf8 50%, #818cf8 100%);
+  background: linear-gradient(135deg, #e8ecf4 0%, #ff4d4d 50%, #ff8a80 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -116,7 +116,7 @@ body {
   inset: 0;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(129, 140, 248, 0.1), rgba(56, 189, 248, 0.05));
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(153, 27, 27, 0.1), rgba(239, 68, 68, 0.05));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -130,8 +130,8 @@ body {
 /* Grid background pattern */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(239, 68, 68, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 68, 68, 0.02) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 

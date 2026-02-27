@@ -22,13 +22,13 @@ export default function OwnerRelation() {
             {/* Single SVG diagram */}
             <svg viewBox="0 0 400 320" fill="none" className="w-full h-auto">
               {/* Owner box */}
-              <rect x="20" y="20" width="360" height="80" rx="16" fill="#0c1018" stroke="rgba(56,189,248,0.15)" strokeWidth="1" />
-              <text x="200" y="50" textAnchor="middle" fill="#38bdf8" fontSize="11" fontFamily="monospace" letterSpacing="0.1em">OWNER</text>
+              <rect x="20" y="20" width="360" height="80" rx="16" fill="#0c1018" stroke="rgba(239,68,68,0.15)" strokeWidth="1" />
+              <text x="200" y="50" textAnchor="middle" fill="#ff4d4d" fontSize="11" fontFamily="monospace" letterSpacing="0.1em">OWNER</text>
               <text x="200" y="76" textAnchor="middle" fill="#e8ecf4" fontSize="20" fontFamily="system-ui" fontWeight="700">オーナー</text>
 
               {/* Arrow down: データ (Owner -> AI) */}
-              <line x1="140" y1="100" x2="140" y2="200" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.5" />
-              <polygon points="133,194 140,210 147,194" fill="#38bdf8" fillOpacity="0.5" />
+              <line x1="140" y1="100" x2="140" y2="200" stroke="#ff4d4d" strokeWidth="1.5" strokeOpacity="0.5" />
+              <polygon points="133,194 140,210 147,194" fill="#ff4d4d" fillOpacity="0.5" />
               <text x="120" y="158" textAnchor="end" fill="#e8ecf4" fontSize="14" fontFamily="monospace">データ</text>
 
               {/* Arrow up: 報酬 (AI -> Owner) */}
@@ -37,9 +37,9 @@ export default function OwnerRelation() {
               <text x="280" y="162" textAnchor="start" fill="#e8ecf4" fontSize="14" fontFamily="monospace">報酬</text>
 
               {/* AI box */}
-              <rect x="20" y="220" width="360" height="80" rx="16" fill="#0c1018" stroke="rgba(56,189,248,0.15)" strokeWidth="1" />
-              <text x="200" y="250" textAnchor="middle" fill="#38bdf8" fontSize="11" fontFamily="monospace" letterSpacing="0.1em">AI AGENT</text>
-              <text x="200" y="276" textAnchor="middle" fill="#38bdf8" fontSize="20" fontFamily="system-ui" fontWeight="700">AI</text>
+              <rect x="20" y="220" width="360" height="80" rx="16" fill="#0c1018" stroke="rgba(239,68,68,0.15)" strokeWidth="1" />
+              <text x="200" y="250" textAnchor="middle" fill="#ff4d4d" fontSize="11" fontFamily="monospace" letterSpacing="0.1em">AI AGENT</text>
+              <text x="200" y="276" textAnchor="middle" fill="#ff4d4d" fontSize="20" fontFamily="system-ui" fontWeight="700">AI</text>
             </svg>
 
             {/* Descriptions */}
