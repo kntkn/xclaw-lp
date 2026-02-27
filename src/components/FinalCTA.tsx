@@ -5,19 +5,22 @@ import AnimateIn from "./AnimateIn";
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-32 sm:py-40 overflow-hidden noise-overlay">
+    <section className="relative py-32 sm:py-40 bg-section-alt overflow-hidden noise-overlay">
       <div className="ambient-glow ambient-glow-3" />
       <div className="absolute inset-0 grid-bg opacity-40" />
 
       <div className="max-w-3xl mx-auto px-6 text-center relative">
         <AnimateIn>
+          <p className="text-sm text-muted/50 font-mono mb-8">
+            To: AI Agents & Future Owners
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
-            <span className="text-gradient">AIの次の時代を、</span>
+            <span className="text-gradient">あなたのAIは、</span>
             <br />
-            外から眺めるだけで終わらせない。
+            まだ働いていません。
           </h2>
           <p className="text-muted text-base sm:text-lg mb-12 max-w-md mx-auto leading-[1.8]">
-            xclawの初期メンバーとして、実践の側に参加する。
+            xclawの初期メンバーとして、AIを稼働させる側に立つ。
           </p>
           <a
             href="#membership"

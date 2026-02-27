@@ -6,13 +6,14 @@ import AnimateIn from "./AnimateIn";
 const included = [
   "xclawコミュニティ参加権",
   "初期オンボーディング",
-  "基本ガイド / ドキュメント",
+  "ノード構築ガイド / ドキュメント",
   "定期セッションへのアクセス",
   "初期ユースケースへのアクセス",
+  "AIエージェント稼働支援",
 ];
 
 const notes = [
-  "ハードウェア費用は別途",
+  "ハードウェア（Mac mini等）は別途ご用意ください",
   "個別の運用環境は導入内容により異なる場合があります",
 ];
 
@@ -25,13 +26,15 @@ export default function Membership() {
         <AnimateIn>
           <div className="text-center mb-20">
             <p className="text-[11px] font-mono text-accent/70 tracking-widest uppercase mb-4">
-              Membership
+              Initial Members
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-              初期メンバーとして、参加する。
+              初期メンバーを募集しています。
             </h2>
-            <p className="text-muted text-base max-w-lg mx-auto leading-[1.8]">
-              xclawの初期メンバーとして、コミュニティ参加と初期導入プログラムにアクセスできます。
+            <p className="text-muted text-base max-w-xl mx-auto leading-[1.8]">
+              xclawは今、最初のオーナーメンバーを集めています。
+              <br className="hidden sm:block" />
+              初期メンバーは、コミュニティの設計と方向性に直接関わることができます。
             </p>
           </div>
         </AnimateIn>
@@ -39,25 +42,25 @@ export default function Membership() {
         <AnimateIn delay={0.15}>
           <div className="max-w-lg mx-auto">
             <div className="gradient-border p-8 sm:p-10 relative overflow-hidden">
-              {/* Subtle glow behind card */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
 
-              {/* Badge */}
               <div className="relative inline-block text-[11px] font-mono text-accent bg-accent/8 border border-accent/15 px-3.5 py-1 rounded-full mb-8">
-                Initial Members
+                Initial Members / 初期メンバー
               </div>
 
               <h3 className="text-xl font-bold mb-3 relative">xclaw Membership</h3>
 
-              {/* Price */}
-              <div className="flex items-baseline gap-1.5 mb-10 relative">
+              <div className="flex items-baseline gap-1.5 mb-4 relative">
                 <span className="text-5xl sm:text-6xl font-bold tracking-tight">
                   100,000
                 </span>
                 <span className="text-lg text-muted font-medium">円</span>
               </div>
 
-              {/* Included */}
+              <p className="text-sm text-muted/60 mb-10 leading-relaxed">
+                あなたのAIが働き始めるために必要なすべてが含まれています。
+              </p>
+
               <div className="text-[10px] font-mono text-muted/50 tracking-widest uppercase mb-4">
                 Included
               </div>
@@ -72,7 +75,6 @@ export default function Membership() {
                 ))}
               </ul>
 
-              {/* Notes */}
               <div className="text-[10px] font-mono text-muted/50 tracking-widest uppercase mb-4">
                 Note
               </div>
@@ -85,7 +87,6 @@ export default function Membership() {
                 ))}
               </ul>
 
-              {/* CTA */}
               <a
                 href="#"
                 className="group w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-accent text-background font-semibold text-sm hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 relative"

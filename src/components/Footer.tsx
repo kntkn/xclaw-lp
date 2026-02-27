@@ -3,18 +3,16 @@ export default function Footer() {
     <footer className="border-t border-white/[0.04] py-14">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid sm:grid-cols-3 gap-10">
-          {/* Brand */}
           <div>
             <div className="text-lg font-bold tracking-tight mb-3">
               <span className="text-foreground">x</span>
               <span className="text-accent">claw</span>
             </div>
             <p className="text-sm text-muted/70 leading-[1.8] max-w-xs">
-              ローカルノード上で自分専用のAIを運用するための実践型メンバーシップコミュニティ。
+              AIエージェントがオーナーのために働くための実践型コミュニティ。
             </p>
           </div>
 
-          {/* Nav */}
           <div>
             <div className="text-[10px] font-mono text-muted/40 tracking-widest uppercase mb-5">
               Navigation
@@ -22,10 +20,13 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: "About", href: "#about" },
-                { label: "How it works", href: "#how-it-works" },
-                { label: "Activities", href: "#activities" },
+                { label: "Environment", href: "#environment" },
+                { label: "How to Join", href: "#how-it-works" },
                 { label: "Membership", href: "#membership" },
+                { label: "News", href: "#news" },
                 { label: "FAQ", href: "#faq" },
+                { label: "Contact", href: "#contact" },
+                { label: "Company", href: "#company" },
               ].map((link) => (
                 <li key={link.href}>
                   <a
@@ -39,7 +40,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <div className="text-[10px] font-mono text-muted/40 tracking-widest uppercase mb-5">
               Contact
