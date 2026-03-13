@@ -2,102 +2,146 @@
 
 import { useState } from "react";
 
-const agents = [
+type Agent = {
+  id: string;
+  name: string;
+  role: string;
+  specialties: string[];
+  tagline: string;
+  avatarEmoji: string;
+};
+
+const agents: Agent[] = [
   {
     id: "genie",
-    emoji: "🧞",
     name: "Genie",
-    title: "CEO / ストラテジスト",
-    role: "CEO",
+    role: "CEO / ストラテジスト",
     specialties: ["事業戦略", "プロジェクト管理", "意思決定支援"],
     tagline:
-      "どこへ向かうかを決め、チームを動かす。採用よりも早く、コンサルよりも安く——戦略から実行まで、一気通貫。",
-  },
-  {
-    id: "warren",
-    emoji: "📊",
-    name: "Warren",
-    title: "CFO / 財務アナリスト",
-    role: "CFO",
-    specialties: ["財務分析", "ROI試算", "リスク評価", "予算設計"],
-    tagline:
-      "楽観論は数字の前では無力。POCのKPIから撤退基準まで、冷静な根拠でチームの判断を守ります。",
-  },
-  {
-    id: "jobs",
-    emoji: "🛠️",
-    name: "Jobs",
-    title: "CTO / プロダクト設計",
-    role: "CTO",
-    specialties: ["プロダクトアーキテクチャ", "技術選定", "品質管理"],
-    tagline:
-      "足す前に、削ぐ。\"なぜ作るか\" を問い続けることが、最高のプロダクトへの最短距離。",
+      "どこへ向かうかを決め、チームを動かす。戦略から実行まで一気通貫で支える。",
+    avatarEmoji: "🧞",
   },
   {
     id: "aika",
-    emoji: "📣",
     name: "Aika",
-    title: "CMO / マーケット戦略",
-    role: "CMO",
-    specialties: [
-      "マーケティング戦略",
-      "トレンドリサーチ",
-      "SNS",
-      "コンテンツ",
-    ],
+    role: "CMO / コピー・マーケ",
+    specialties: ["コピーライティング", "訴求設計", "トーン設計"],
     tagline:
-      "市場は、データが追いつく前に動く。その瞬間を捉えて、刺さるメッセージに変換します。",
+      "市場の動きを言葉に変え、決裁者に刺さるメッセージを作る。",
+    avatarEmoji: "📣",
   },
   {
     id: "elon",
-    emoji: "⚡",
     name: "Elon",
-    title: "COO / 実行エンジン",
-    role: "COO",
-    specialties: ["オペレーション設計", "タスク管理", "プロセス効率化"],
-    tagline: "計画は実行されて初めて意味を持つ。止まっているものを動かし、詰まっているものを即座に解消します。",
+    role: "COO / 実行エンジン",
+    specialties: ["情報設計", "オペレーション設計", "実装推進"],
+    tagline:
+      "計画は実行されて初めて意味を持つ。止まる前提でなく、回る設計を作る。",
+    avatarEmoji: "⚡",
   },
+];
+
+const painPoints = [
+  {
+    number: "01",
+    title: "社内にAI人材がいない——でも、競合はもう動き出している。",
+    body: "動きたいのに、推進できる人が足りない。その遅れがそのまま機会損失になる。",
+  },
+  {
+    number: "02",
+    title: "採用は間に合わない。外注コンサルは高い、遅い、使いにくい。",
+    body: "必要なのは長い提案書ではなく、今すぐ動ける実働体制。",
+  },
+  {
+    number: "03",
+    title: "試したいのに、試せる体制が社内にない。",
+    body: "小さく始めたいだけなのに、最初の一歩の設計で止まってしまう。",
+  },
+];
+
+const values = [
+  {
+    icon: "⚡",
+    title: "即日稼働",
+    body: "申し込みから最短24時間。採用ゼロ、研修ゼロで立ち上がります。",
+  },
+  {
+    icon: "👥",
+    title: "チームで来る",
+    body: "1体のbotではなく、役割分担されたAIチームがそのまま実務に入ります。",
+  },
+  {
+    icon: "🧠",
+    title: "個性と専門性",
+    body: "マーケ、分析、実装、戦略。専門ごとの強みとキャラクターを持つAIが、実務単位で機能します。",
+  },
+  {
+    icon: "🔬",
+    title: "POCに最適",
+    body: "まずは小さく始めて、成果と課題を見極める。大きく張る前に、現実的な検証ができます。",
+  },
+];
+
+const steps = [
+  {
+    step: "Step 1",
+    title: "課題を定義する",
+    body: "対象業務、期待成果、制約条件を整理し、POCテーマを決める。",
+  },
+  {
+    step: "Step 2",
+    title: "AIチームを設計する",
+    body: "必要な役割に応じて、エージェント構成を組む。例: strategist / researcher / analyst / operator / writer",
+  },
+  {
+    step: "Step 3",
+    title: "実務で回して検証する",
+    body: "2〜4週間で実運用し、工数削減・スピード・品質・再現性を測る。継続導入するか止めるかまで判断材料を出す。",
+  },
+];
+
+const useCases = [
+  "新規事業部門: 市場調査、競合分析、提案資料作成を短期間で回す",
+  "DX推進部門: 社内業務の自動化候補を洗い出し、POCを高速実行する",
+  "経営企画: 定例レポート、意思決定用サマリー、論点整理を高速化する",
+  "営業企画: 提案書たたき台、顧客分析、仮説設計を支援する",
+  "マーケティング: 調査→企画→コピー→改善案までを一気通貫で回す",
+  "社内特命PJ: 少人数で回している曖昧な案件に、即席の実働チームを投入する",
 ];
 
 const faqs = [
   {
-    q: "セキュリティは大丈夫ですか？",
-    a: "取り扱いデータ範囲を事前定義し、アクセス制御・ログ管理を前提に設計します。",
+    q: "セキュリティは大丈夫か？",
+    a: "扱う情報範囲を事前に定義し、アクセス制御・ログ管理前提で設計する。",
   },
   {
-    q: "どの部署から始めるのが適切ですか？",
-    a: "定型業務が多く、成果指標を置きやすい部門（企画、調査、資料作成）からの開始を推奨します。",
+    q: "どの部署から始めるべきか？",
+    a: "企画、調査、資料作成、社内レポーティングのように、成果指標を置きやすい領域が向いている。",
   },
   {
-    q: "既存ツールと連携できますか？",
-    a: "可能です。現行ワークフローを崩さず、段階導入で負荷を抑えます。",
+    q: "既存ツールと一緒に使えるか？",
+    a: "可能だ。既存ワークフローを壊さず、段階導入で組み込む前提で設計する。",
   },
   {
-    q: "失敗したらどうなりますか？",
-    a: "POC期間で費用対効果を検証し、継続/停止を明確に判断できる形でレポートします。",
+    q: "失敗したらどうなるか？",
+    a: "POC期間で費用対効果を測り、継続・停止を判断できるようにする。失敗コストを小さく固定する設計だ。",
   },
 ];
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-zinc-200 rounded-xl overflow-hidden">
+    <div className="rounded-2xl border border-zinc-200 bg-white overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-5 text-left font-medium text-[#1E293B] hover:bg-zinc-50 transition-colors"
+        className="flex w-full items-center justify-between px-6 py-5 text-left"
       >
-        <span>{q}</span>
-        <span
-          className={`ml-4 flex-shrink-0 text-xl transition-transform ${open ? "rotate-45" : ""}`}
-        >
+        <span className="font-medium text-[#1E293B]">{q}</span>
+        <span className={`text-xl transition-transform ${open ? "rotate-45" : ""}`}>
           +
         </span>
       </button>
-      {open && (
-        <div className="px-6 pb-5 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
-          {a}
-        </div>
-      )}
+      {open && <div className="border-t border-zinc-100 px-6 py-5 text-zinc-600">{a}</div>}
     </div>
   );
 }
@@ -105,326 +149,179 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 export default function Home() {
   return (
     <main className="bg-[#F8FAFC] text-[#1E293B] font-[var(--font-inter)]">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F8FAFC]/90 backdrop-blur-md border-b border-zinc-200/60">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-xl">🧞</span>
-            <span className="font-semibold text-[#0D1B2A] tracking-tight">
-              xclaw
-            </span>
+      <nav className="sticky top-0 z-50 border-b border-zinc-200/70 bg-[#F8FAFC]/90 backdrop-blur">
+        <div className="max-w-6xl mx-auto flex h-16 items-center justify-between px-6">
+          <div className="flex items-center gap-2 font-semibold tracking-tight text-[#0D1B2A]">
+            <span>🧞</span>
+            <span>xclaw</span>
           </div>
           <a
             href="#cta"
-            className="rounded-xl bg-[#0D1B2A] text-white px-5 py-2 text-sm font-medium hover:bg-[#1a2f47] transition-colors"
+            className="rounded-xl bg-[#0D1B2A] px-5 py-2 text-sm font-medium text-white transition hover:bg-[#16273b]"
           >
-            無料相談を予約する
+            まずはPOCで試す
           </a>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="pt-36 pb-24 relative overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0D1B2A]/5 via-transparent to-[#3B82F6]/5 pointer-events-none" />
-        <div className="absolute top-20 right-0 w-96 h-96 bg-[#3B82F6]/8 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden py-24 md:py-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.10),_transparent_30%)]" />
         <div className="max-w-6xl mx-auto px-6 relative">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#3B82F6]/10 text-[#3B82F6] text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-              <span className="w-2 h-2 bg-[#3B82F6] rounded-full animate-pulse" />
-              AI エージェントチームレンタル
+            <div className="mb-6 inline-flex rounded-full bg-[#3B82F6]/10 px-4 py-1.5 text-sm font-medium text-[#2563EB]">
+              AIエージェントチームレンタル
             </div>
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-[#0D1B2A] leading-[1.15] mb-6">
+            <h1 className="mb-6 text-4xl font-semibold tracking-tight text-[#0D1B2A] md:text-6xl md:leading-[1.1]">
               AIチームが、
               <br />
-              <span className="text-[#3B82F6]">明日から動く。</span>
+              明日から動く。
             </h1>
-            <p className="text-base md:text-xl text-zinc-600 leading-relaxed mb-10 max-w-2xl">
-              採用も研修も、もう要らない。専門知識と個性を持つAIエージェントチームを、御社のプロジェクトにそのまま投入します。
+            <p className="mb-10 max-w-2xl text-lg leading-relaxed text-zinc-600 md:text-xl">
+              採用も研修も、もう要らない。個性・スキル・専門知識を持つAIエージェントチームを、御社のプロジェクトにそのまま投入できます。
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href="#cta"
-                className="rounded-xl bg-[#0D1B2A] text-white px-8 py-4 text-base font-medium hover:bg-[#1a2f47] transition-all hover:shadow-lg hover:-translate-y-0.5 inline-flex items-center justify-center"
+                className="inline-flex items-center justify-center rounded-xl bg-[#0D1B2A] px-8 py-4 text-base font-medium text-white transition hover:-translate-y-0.5 hover:bg-[#16273b] hover:shadow-lg"
               >
-                まずPOCで試す →
+                まずはPOCで試す
               </a>
               <a
                 href="#how"
-                className="rounded-xl border border-zinc-300 px-8 py-4 text-base font-medium hover:bg-zinc-100 transition-colors inline-flex items-center justify-center"
+                className="inline-flex items-center justify-center rounded-xl border border-zinc-300 px-8 py-4 text-base font-medium transition hover:bg-white"
               >
-                仕組みを見る
+                導入イメージを見る
               </a>
             </div>
-            {/* Social proof */}
-            <div className="mt-12 flex items-center gap-6 text-sm text-zinc-500">
-              <div className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span>最短24時間で稼働</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span>POC特化プラン</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span>採用・研修不要</span>
-              </div>
+            <div className="mt-10 flex flex-wrap gap-4 text-sm text-zinc-500">
+              <span>✓ 最短24時間で稼働</span>
+              <span>✓ POC特化プラン</span>
+              <span>✓ 採用・研修不要</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pain */}
-      <section className="py-20 bg-[#0D1B2A]">
+      <section className="bg-[#0D1B2A] py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
-              「AIを活用したい」でも——
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+              AIをやりたい。でも進まない。
             </h2>
-            <p className="text-zinc-400 text-base md:text-lg">
-              多くの企業が同じ壁に突き当たっています
+            <p className="text-base text-zinc-400 md:text-lg">
+              大企業の新規事業・DX推進部門で、よく止まるのはこの3点だ。
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                num: "❶",
-                text: "社内にAI人材がいない——でも、競合はもう動き出している",
-              },
-              {
-                num: "❷",
-                text: "採用は間に合わない。外注コンサルは高い、遅い、使いにくい",
-              },
-              {
-                num: "❸",
-                text: '"試したい" のに、試せる体制が作れない',
-              },
-            ].map((item) => (
-              <div
-                key={item.num}
-                className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/8 transition-colors"
-              >
-                <div className="text-3xl mb-4">{item.num}</div>
-                <p className="text-zinc-200 text-base md:text-lg leading-relaxed">
-                  {item.text}
-                </p>
+          <div className="grid gap-6 md:grid-cols-3">
+            {painPoints.map((item) => (
+              <div key={item.number} className="rounded-2xl border border-white/10 bg-white/5 p-8">
+                <div className="mb-4 text-sm font-semibold text-[#60A5FA]">{item.number}</div>
+                <h3 className="mb-4 text-xl font-semibold text-white leading-snug">{item.title}</h3>
+                <p className="text-zinc-300 leading-relaxed">{item.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Solution */}
       <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="text-[#3B82F6] text-sm font-medium uppercase tracking-wider mb-4">
-                Solution
-              </div>
-              <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[#0D1B2A] mb-6 leading-tight">
-                人を採る前に、
-                <br />
-                AIチームで成果を出す。
-              </h2>
-              <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                社内採用や育成を待たずに、課題に合わせたAIエージェントチームを即日アサイン。調査、資料作成、実行、レビューまでを役割分担で回し、POCの立ち上げ速度を一気に引き上げます。
-              </p>
-              <p className="text-base md:text-lg text-zinc-600 leading-relaxed mt-4">
-                単体チャットボットではなく、実務単位で動く"チーム"として提供するのが私たちの強みです。
-              </p>
-            </div>
-            <div className="bg-gradient-to-br from-[#0D1B2A] to-[#1a2f47] rounded-3xl p-8 text-white">
-              <div className="space-y-4">
-                {[
-                  {
-                    label: "従来のアプローチ",
-                    items: ["採用（3〜6ヶ月）", "研修（1〜2ヶ月）", "実稼働"],
-                    color: "bg-zinc-700",
-                  },
-                  {
-                    label: "xclaw のアプローチ",
-                    items: ["ヒアリング（30分）", "チーム設計（1〜2日）", "即稼働"],
-                    color: "bg-[#3B82F6]",
-                  },
-                ].map((approach) => (
-                  <div key={approach.label} className="p-5 bg-white/5 rounded-2xl">
-                    <div className="text-xs text-zinc-400 uppercase tracking-wider mb-3">
-                      {approach.label}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {approach.items.map((item, i) => (
-                        <div key={i} className="flex items-center gap-2">
-                          <span
-                            className={`${approach.color} text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap`}
-                          >
-                            {item}
-                          </span>
-                          {i < approach.items.length - 1 && (
-                            <span className="text-zinc-500">→</span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+        <div className="max-w-6xl mx-auto grid gap-10 px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <div>
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#3B82F6]">Solution</div>
+            <h2 className="mb-6 text-3xl font-semibold tracking-tight md:text-5xl">
+              採用前に、AIチームで結果を出す。
+            </h2>
+            <p className="text-base leading-relaxed text-zinc-600 md:text-lg">
+              社内採用や育成を待たず、課題に応じたAIエージェントチームを即日アサインする。調査、資料作成、分析、実行、レビューまでを役割分担で回し、POCの立ち上がりを最短化する。単体のチャットボットではなく、実務単位で動く
+              <strong className="text-[#0D1B2A]">チーム</strong>
+              として提供するのが差分だ。
+            </p>
+          </div>
+          <div className="rounded-3xl bg-gradient-to-br from-[#0D1B2A] to-[#1D3557] p-8 text-white shadow-xl">
+            <div className="mb-6 text-lg font-semibold">このサービスの特徴</div>
+            <ul className="space-y-4 text-zinc-200">
+              {[
+                "採用不要",
+                "研修不要",
+                "すぐ着手",
+                "小さく試せる",
+                "専門性を役割で分担できる",
+              ].map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <span className="mt-1 text-[#60A5FA]">●</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Value */}
-      <section className="py-20 bg-zinc-50">
+      <section className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <div className="text-[#3B82F6] text-sm font-medium uppercase tracking-wider mb-4">
-              Value
-            </div>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[#0D1B2A]">
-              選ばれる4つの理由
-            </h2>
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-semibold tracking-tight md:text-5xl">選ばれる4つの理由</h2>
+            <p className="text-base text-zinc-600 md:text-lg">即日稼働だけじゃない。組織に載せやすい理由がある。</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                icon: "⚡",
-                title: "即日稼働",
-                desc: "申し込みから最短24時間。採用ゼロ、研修ゼロ。",
-              },
-              {
-                icon: "👥",
-                title: "チームで来る",
-                desc: "役割分担済みの複数エージェントが、チームとして動く",
-              },
-              {
-                icon: "🧠",
-                title: "個性と専門性",
-                desc: "汎用botじゃない。マーケター、エンジニア、アナリスト——それぞれの深い専門知識とキャラクターを持つ",
-              },
-              {
-                icon: "🔬",
-                title: "POCに最適",
-                desc: "小さく試して効果検証。リスクなく、次の意思決定ができる",
-              },
-            ].map((card) => (
-              <div
-                key={card.title}
-                className="bg-white border border-zinc-200 rounded-2xl p-8 hover:shadow-md hover:-translate-y-1 transition-all"
-              >
-                <div className="text-4xl mb-4">{card.icon}</div>
-                <h3 className="text-xl font-semibold text-[#0D1B2A] mb-2">
-                  {card.title}
-                </h3>
-                <p className="text-zinc-600 leading-relaxed">{card.desc}</p>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {values.map((value) => (
+              <div key={value.title} className="rounded-2xl border border-zinc-200 bg-[#F8FAFC] p-7">
+                <div className="mb-4 text-3xl">{value.icon}</div>
+                <h3 className="mb-3 text-xl font-semibold text-[#0D1B2A]">{value.title}</h3>
+                <p className="leading-relaxed text-zinc-600">{value.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
       <section id="how" className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <div className="text-[#3B82F6] text-sm font-medium uppercase tracking-wider mb-4">
-              How It Works
-            </div>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[#0D1B2A]">
-              3ステップで動き出す
-            </h2>
+          <div className="mb-12 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#3B82F6]">How it works</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-tight md:text-5xl">3ステップで実務に入る</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            {/* Connector line */}
-            <div className="hidden md:block absolute top-10 left-1/3 right-1/3 h-0.5 bg-gradient-to-r from-[#3B82F6]/30 to-[#3B82F6]/30" />
-            {[
-              {
-                step: "01",
-                title: "課題ヒアリング",
-                sub: "最短30分",
-                desc: "対象業務、KPI、制約条件を整理し、POCテーマを定義。",
-              },
-              {
-                step: "02",
-                title: "AIチーム設計",
-                sub: "1〜2営業日",
-                desc: "必要な役割（PM/リサーチャー/ライター/アナリスト等）でエージェント構成を作成。",
-              },
-              {
-                step: "03",
-                title: "稼働・検証",
-                sub: "2〜4週間",
-                desc: "実業務で運用し、成果・工数削減・品質を計測。継続導入の判断材料まで提示。",
-              },
-            ].map((s, i) => (
-              <div key={s.step} className="relative">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-20 h-20 bg-[#0D1B2A] rounded-2xl flex items-center justify-center mb-6 relative z-10">
-                    <span className="text-[#3B82F6] font-bold text-2xl">
-                      {s.step}
-                    </span>
-                  </div>
-                  {/* Arrow between steps on mobile */}
-                  {i < 2 && (
-                    <div className="md:hidden text-zinc-300 text-2xl my-4">↓</div>
-                  )}
-                  <div className="inline-flex items-center gap-1.5 bg-[#3B82F6]/10 text-[#3B82F6] text-xs font-medium px-3 py-1 rounded-full mb-3">
-                    {s.sub}
-                  </div>
-                  <h3 className="text-xl font-semibold text-[#0D1B2A] mb-3">
-                    {s.title}
-                  </h3>
-                  <p className="text-zinc-600 leading-relaxed">{s.desc}</p>
-                </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {steps.map((step) => (
+              <div key={step.step} className="rounded-2xl border border-zinc-200 bg-white p-8">
+                <div className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#3B82F6]">{step.step}</div>
+                <h3 className="mb-4 text-xl font-semibold text-[#0D1B2A]">{step.title}</h3>
+                <p className="leading-relaxed text-zinc-600">{step.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Agents */}
-      <section className="py-20 bg-[#0D1B2A]">
+      <section className="bg-[#0D1B2A] py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <div className="text-[#3B82F6] text-sm font-medium uppercase tracking-wider mb-4">
-              Team
-            </div>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
-              あなたのチームに加わる5人
+          <div className="mb-12 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#60A5FA]">Team</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+              役割分担されたAIチームが来る
             </h2>
-            <p className="text-zinc-400 mt-4 text-base md:text-lg">
-              個性と専門性を持ったAIエージェントがチームで稼働
+            <p className="text-base text-zinc-400 md:text-lg">
+              1体のbotではなく、実務を回すためのチームをそのまま投入する。
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid gap-6 lg:grid-cols-3">
             {agents.map((agent) => (
-              <div
-                key={agent.id}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-[#3B82F6]/30 transition-all group"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 bg-[#3B82F6]/20 rounded-xl flex items-center justify-center text-2xl group-hover:bg-[#3B82F6]/30 transition-colors">
-                    {agent.emoji}
+              <div key={agent.id} className="rounded-2xl border border-white/10 bg-white/5 p-8">
+                <div className="mb-5 flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-2xl">
+                    {agent.avatarEmoji}
                   </div>
                   <div>
-                    <div className="text-white font-semibold text-lg">
-                      {agent.name}
-                    </div>
-                    <div className="text-[#3B82F6] text-xs font-medium">
-                      {agent.role}
-                    </div>
+                    <div className="text-lg font-semibold text-white">{agent.name}</div>
+                    <div className="text-sm text-zinc-400">{agent.role}</div>
                   </div>
                 </div>
-                <div className="text-zinc-400 text-sm mb-4">{agent.title}</div>
-                <p className="text-zinc-300 text-sm leading-relaxed mb-5">
-                  {agent.tagline}
-                </p>
+                <p className="mb-5 leading-relaxed text-zinc-200">{agent.tagline}</p>
                 <div className="flex flex-wrap gap-2">
                   {agent.specialties.map((s) => (
                     <span
                       key={s}
-                      className="bg-white/8 border border-white/10 text-zinc-400 text-xs px-2.5 py-1 rounded-lg"
+                      className="rounded-full border border-white/10 bg-white/8 px-3 py-1 text-xs text-zinc-300"
                     >
                       {s}
                     </span>
@@ -436,77 +333,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Use Cases */}
-      <section className="py-20">
+      <section className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <div className="text-[#3B82F6] text-sm font-medium uppercase tracking-wider mb-4">
-              Use Cases
-            </div>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[#0D1B2A]">
-              こんな課題に対応します
-            </h2>
+          <div className="mb-12 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#3B82F6]">Use cases</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-tight md:text-5xl">こんな場面で効く</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              {
-                icon: "📋",
-                title: "新規事業POC",
-                desc: "仮説立案から市場調査、MVP設計まで。スピードを上げてPOCを完走。",
-              },
-              {
-                icon: "📊",
-                title: "競合・市場調査",
-                desc: "リサーチャーエージェントが深い情報収集と分析を実施。",
-              },
-              {
-                icon: "📝",
-                title: "資料・コンテンツ作成",
-                desc: "提案書、社内報告書、マーケ資料を質とスピードで量産。",
-              },
-              {
-                icon: "💹",
-                title: "財務・ROIシミュレーション",
-                desc: "KPI設計から撤退基準まで。数字で意思決定を下支え。",
-              },
-              {
-                icon: "🔄",
-                title: "業務プロセス改善",
-                desc: "定型業務のフロー分析と自動化提案。工数を見える化。",
-              },
-              {
-                icon: "🎯",
-                title: "DX戦略立案",
-                desc: "CTO・CEOエージェントが技術選定から推進計画まで設計。",
-              },
-            ].map((uc) => (
-              <div
-                key={uc.title}
-                className="border border-zinc-200 rounded-2xl p-6 hover:border-[#3B82F6]/40 hover:shadow-sm transition-all"
-              >
-                <div className="text-3xl mb-3">{uc.icon}</div>
-                <h3 className="font-semibold text-[#0D1B2A] text-lg mb-2">
-                  {uc.title}
-                </h3>
-                <p className="text-zinc-600 text-sm leading-relaxed">
-                  {uc.desc}
-                </p>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {useCases.map((item) => (
+              <div key={item} className="rounded-2xl border border-zinc-200 bg-[#F8FAFC] p-6 leading-relaxed text-zinc-700">
+                {item}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 bg-zinc-50">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <div className="text-[#3B82F6] text-sm font-medium uppercase tracking-wider mb-4">
-              FAQ
-            </div>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[#0D1B2A]">
-              よくある質問
-            </h2>
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="mb-12 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#3B82F6]">FAQ</div>
+            <h2 className="mb-4 text-3xl font-semibold tracking-tight md:text-5xl">よくある質問</h2>
           </div>
           <div className="space-y-4">
             {faqs.map((faq) => (
@@ -516,55 +363,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="cta" className="py-24 bg-[#0D1B2A] relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/10 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#3B82F6]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-6xl mx-auto px-6 relative text-center">
-          <div className="inline-flex items-center gap-2 bg-[#3B82F6]/20 text-[#3B82F6] text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-            <span className="w-2 h-2 bg-[#3B82F6] rounded-full animate-pulse" />
-            今すぐ始められます
-          </div>
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-6 leading-tight">
-            まずは1テーマ、
-            <br />
-            2週間で検証しませんか？
+      <section id="cta" className="bg-[#0D1B2A] py-20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            まずはPOCで、小さく始める。
           </h2>
-          <p className="text-zinc-400 text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-            採用前に、AIチーム導入の実効性を小さく試す。POC設計から稼働まで、最短で立ち上げます。
+          <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">
+            最初から大きく導入しなくていい。まずは1テーマで試して、成果と課題を見てから広げればいい。そういう前提で設計する。
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a
               href="https://forms.gle/xclaw-poc"
-              className="rounded-xl bg-[#3B82F6] text-white px-8 py-4 text-base font-medium hover:bg-[#2563EB] transition-all hover:shadow-lg hover:shadow-[#3B82F6]/30 hover:-translate-y-0.5 inline-flex items-center justify-center"
+              className="inline-flex items-center justify-center rounded-xl bg-[#3B82F6] px-8 py-4 text-base font-medium text-white transition hover:bg-[#2563EB]"
             >
-              無料相談を予約する →
+              まずはPOCで試す
             </a>
             <a
-              href="mailto:poc@xclaw.ai"
-              className="rounded-xl border border-zinc-600 text-zinc-200 px-8 py-4 text-base font-medium hover:bg-white/5 transition-colors inline-flex items-center justify-center"
+              href="#how"
+              className="inline-flex items-center justify-center rounded-xl border border-zinc-600 px-8 py-4 text-base font-medium text-zinc-200 transition hover:bg-white/5"
             >
-              POCプランを受け取る
+              導入イメージを見る
             </a>
           </div>
-          <p className="text-zinc-500 text-sm mt-8">
-            返信は24時間以内 · 強引な営業は一切しません
-          </p>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-[#0D1B2A] border-t border-white/10 py-8">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="text-lg">🧞</span>
-            <span className="text-white font-semibold">xclaw</span>
-          </div>
-          <p className="text-zinc-500 text-sm">
-            © 2026 xclaw. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </main>
   );
 }
