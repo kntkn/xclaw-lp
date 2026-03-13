@@ -229,8 +229,7 @@ export default function Home() {
                 AIチームで成果を出す。
               </h2>
               <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                社内採用や育成を待たずに、課題に合わせたAI
-                agentチームを即日アサイン。調査、資料作成、実行、レビューまでを役割分担で回し、POCの立ち上げ速度を一気に引き上げます。
+                社内採用や育成を待たずに、課題に合わせたAIエージェントチームを即日アサイン。調査、資料作成、実行、レビューまでを役割分担で回し、POCの立ち上げ速度を一気に引き上げます。
               </p>
               <p className="text-base md:text-lg text-zinc-600 leading-relaxed mt-4">
                 単体チャットボットではなく、実務単位で動く"チーム"として提供するのが私たちの強みです。
@@ -350,7 +349,7 @@ export default function Home() {
                 step: "02",
                 title: "AIチーム設計",
                 sub: "1〜2営業日",
-                desc: "必要な役割（PM/リサーチャー/ライター/アナリスト等）でagent構成を作成。",
+                desc: "必要な役割（PM/リサーチャー/ライター/アナリスト等）でエージェント構成を作成。",
               },
               {
                 step: "03",
@@ -536,10 +535,10 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:poc@xclaw.ai"
+              href="https://forms.gle/xclaw-poc"
               className="rounded-xl bg-[#3B82F6] text-white px-8 py-4 text-base font-medium hover:bg-[#2563EB] transition-all hover:shadow-lg hover:shadow-[#3B82F6]/30 hover:-translate-y-0.5 inline-flex items-center justify-center"
             >
-              無料相談を予約する
+              無料相談を予約する →
             </a>
             <a
               href="mailto:poc@xclaw.ai"
